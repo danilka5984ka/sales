@@ -7,17 +7,12 @@ public class StateService {
         for (int sale : sales) {
             sum += sale;
         }
-
         return sum;
     }
 
     public int averageSum(int[] sales) {
-
-        int sum = 0;
+        int sum = sum(sales);
         int average;
-        for (int sale : sales) {
-            sum += sale;
-        }
         average = sum / sales.length;
         return average;
     }
@@ -42,16 +37,13 @@ public class StateService {
             month = month + 1;
         }
         return minMonth + 1;
+
     }
 
     public int belowAverage(int[] sales) {
         int belowAverage = 0;
-        int average = 0;
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
-        average = sum / sales.length;
+        int average = averageSum(sales);
+        int sum = sum(sales);
 
         for (int sale : sales) {
             if (sale < average) {
@@ -63,12 +55,8 @@ public class StateService {
 
     public int aboveAverage(int[] sales) {
         int aboveAverage = 0;
-        int average = 0;
-        int sum = 0;
-        for (int sale : sales) {
-            sum += sale;
-        }
-        average = sum / sales.length;
+        int average = averageSum(sales);
+        int sum = sum(sales);
 
         for (int sale : sales) {
             if (sale > average) {
